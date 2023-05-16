@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { Menu, Search, User } from 'react-feather';
+import React from "react";
+import styled from "styled-components/macro";
+import { Menu, Search, User } from "react-feather";
 
-import { QUERIES } from '../../constants';
+import { QUERIES, FAMILIES } from "../../constants";
 
-import MaxWidthWrapper from '../MaxWidthWrapper';
-import Logo from '../Logo';
-import Button from '../Button';
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import Logo from "../Logo";
+import Button from "../Button";
 
 const Header = () => {
   return (
@@ -29,7 +29,23 @@ const Header = () => {
         </Row>
       </SuperHeader>
       <MainHeader>
+        <DesktopHeaderLeft>
+          <ActionGroup>
+            <button>
+              <Search size={24} />
+            </button>
+            <button>
+              <Menu size={24} />
+            </button>
+          </ActionGroup>
+        </DesktopHeaderLeft>
         <Logo />
+        <DesktopHeaderRight>
+          <DesktopHeaderUser>
+            <Button>SUBSCRIBE</Button>
+            <Link>Already a subscriber?</Link>
+          </DesktopHeaderUser>
+        </DesktopHeaderRight>
       </MainHeader>
     </header>
   );
@@ -39,6 +55,44 @@ const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
   color: white;
+
+  @media ${QUERIES.desktopAndUp} {
+    display: none;
+  }
+`;
+
+const DesktopHeaderLeft = styled.div`
+  display: none;
+
+  @media ${QUERIES.desktopAndUp} {
+    display: revert;
+    flex: 1;
+  }
+`;
+
+const DesktopHeaderRight = styled.div`
+  display: none;
+
+  @media ${QUERIES.desktopAndUp} {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+`;
+
+const DesktopHeaderUser = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+`;
+
+const Link = styled.a`
+  font-family: ${FAMILIES.serif};
+  text-decoration: underline;
+  font-style: italic;
+  font-size: ${14 / 16}rem;
+  line-height: 22px;
 `;
 
 const Row = styled(MaxWidthWrapper)`
