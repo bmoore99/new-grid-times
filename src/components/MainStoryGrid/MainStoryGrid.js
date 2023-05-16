@@ -1,17 +1,14 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import {
-  MAIN_STORY,
-  OPINION_STORIES,
-  SECONDARY_STORIES,
-} from '../../data';
+import { MAIN_STORY, OPINION_STORIES, SECONDARY_STORIES } from "../../data";
+import { COLORS } from "../../constants";
 
-import SectionTitle from '../SectionTitle';
-import MainStory from '../MainStory';
-import SecondaryStory from '../SecondaryStory';
-import OpinionStory from '../OpinionStory';
-import Advertisement from '../Advertisement';
+import SectionTitle from "../SectionTitle";
+import MainStory from "../MainStory";
+import SecondaryStory from "../SecondaryStory";
+import OpinionStory from "../OpinionStory";
+import Advertisement from "../Advertisement";
 
 const MainStoryGrid = () => {
   return (
@@ -23,7 +20,10 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <>
+              <SecondaryStory key={story.id} {...story} />
+              {index < SECONDARY_STORIES.length - 1 && <Divider />}
+            </>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +32,10 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <>
+              <OpinionStory key={story.id} {...story} />
+              {index < OPINION_STORIES.length - 1 && <Divider />}
+            </>
           ))}
         </StoryList>
       </OpinionSection>
@@ -47,10 +50,10 @@ const MainStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-areas:
-    'main-story'
-    'secondary-stories'
-    'opinion-stories'
-    'advertisement';
+    "main-story"
+    "secondary-stories"
+    "opinion-stories"
+    "advertisement";
   gap: 48px;
   margin-bottom: 48px;
 `;
@@ -61,6 +64,12 @@ const MainStorySection = styled.section`
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+`;
+
+const Divider = styled.hr`
+  border: 1px solid ${COLORS.gray[300]};
+  width: 100%;
+  margin: 12px 0 16px;
 `;
 
 const StoryList = styled.div`
