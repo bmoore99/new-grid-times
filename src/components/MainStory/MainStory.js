@@ -45,12 +45,8 @@ const Abstract = styled.p`
   -webkit-line-clamp: var(--line-clamp);
   overflow: hidden;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.tabletOnly} {
     -webkit-line-clamp: calc(var(--line-clamp) * 2);
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    -webkit-line-clamp: var(--line-clamp);
   }
 `;
 
