@@ -110,7 +110,8 @@ const StoryList = styled.div`
 
   ${OpinionSection} & {
     @media ${QUERIES.tabletOnly} {
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 32px;
     }
   }
