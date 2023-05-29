@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import { MAIN_STORY, OPINION_STORIES, SECONDARY_STORIES } from "../../data";
-import { COLORS, QUERIES } from "../../constants";
+import { QUERIES } from "../../constants";
 
 import SectionTitle from "../SectionTitle";
 import MainStory from "../MainStory";
@@ -74,7 +74,7 @@ const MainStorySection = styled.section`
   grid-area: main-story;
 
   @media ${QUERIES.tabletAndUp} {
-    border-right: 1px solid ${COLORS.gray[300]};
+    border-right: 1px solid var(--color-gray-300);
     padding-right: 16px;
     margin-right: 16px;
   }
@@ -84,7 +84,7 @@ const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
 
   @media ${QUERIES.laptopAndUp} {
-    border-right: 1px solid ${COLORS.gray[300]};
+    border-right: 1px solid var(--color-gray-300);
     padding-right: 16px;
     margin-right: 16px;
   }
@@ -98,7 +98,7 @@ const AdvertisementSection = styled.section`
   grid-area: advertisement;
 
   @media ${QUERIES.laptopAndUp} {
-    border-top: 1px solid ${COLORS.gray[300]};
+    border-top: 1px solid var(--color-gray-300);
     padding-top: 16px;
     margin-top: 16px;
   }
@@ -119,7 +119,7 @@ const StoryList = styled.div`
 
 const Divider = styled.hr`
   border: none;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray-300);
   width: 100%;
   margin: 12px 0 16px;
 
